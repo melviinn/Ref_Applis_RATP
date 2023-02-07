@@ -1,0 +1,32 @@
+a {
+	color: white;
+	text-decoration: none;
+}
+
+.FaillesTitle {
+	width: 100%;
+	background: #dbeef4;
+	padding: 2px 20px;
+	text-align: center;
+	font-weight: bold;
+	color: rgb(63, 59, 59);
+	border-radius: 30px;
+}
+
+.btn-group {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding-top: 20px;
+}
+
+.btn-group .right,
+.content,
+.grid-content {
+	display: flex;
+	justify-content: center;
+}
+
+.linkFailles {
+	text-decoration: underline;
+}
