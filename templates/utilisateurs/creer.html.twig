@@ -1,1 +1,50 @@
+{% extends 'base.html.twig' %}
 
+{% block title %}Créer un utilisateur{% endblock %}
+
+{% block stylesheets %}
+      {{ parent() }}
+      <link rel="stylesheet" href="{{ asset('css/Users/creerUser.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+      <div class="main-content container-fluid">
+            <div>
+                  {% for message in app.flashes('msg') %}
+                        <div class="alert alert-success">
+                              {{ message }}
+                        </div>
+                  {% endfor %}
+            </div>
+            <div class="col-lg-6 mb-4">
+                  <form method="post">
+                        <div class="card shadow mb-4">
+                              <div class="card-header py-3 mb-2">
+                                    <h5 class="m-0 text-primary">Utilisateur</h5>
+                              </div>
+                              <div class="card-body py-1 mb-2">
+                                    {{ form_start(form) }}
+                                          <div class="row">
+                                                <div class="col">
+                                                      {{ form_row(form.MATRICULE) }}
+                                                </div>
+                                                <div class="col">
+                                                      {{ form_row(form.NOM) }}
+                                                </div>
+                                          </div>
+                                          <div class="row">
+                                                <div class="col">
+                                                      {{ form_row(form.PRENOM) }}
+                                                </div>
+                                                <div class="col">
+                                                      {{ form_row(form.ID_PROFIL) }}
+                                                </div>
+                                          </div>
+                                          <button type="submit" class="btn btn-primary mb-4">Créer</button>
+                                    {{ form_end(form) }}
+                              </div>
+                        </div>
+                  </form>
+            </div>
+      </div>
+{% endblock %}
