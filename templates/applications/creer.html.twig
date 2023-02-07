@@ -1,1 +1,225 @@
+{% extends 'base.html.twig' %}
 
+{% block title %}Renseigner une application{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/Apps/creerApplis.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        {% for message in app.flashes('msg') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <form method="post">
+            <div class="row">
+                <div class="col-lg-5 mb-4">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 mb-2">
+                            <h5 class="m-0 text-primary">Informations Fonctionnelles</h5>
+                        </div>
+                        <div class="card-body py-1 mb-4">
+                            {{ form_start(form) }}
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.APPLICATION) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.VERSION) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.FINALITE) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.DESCRIPTION) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.ID_MOA) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.ID_ENTITE) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.ID_EQUIPE) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.ID_POLE) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.CONTACT) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.ID_MOE) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.ID_MOE_INT) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.ID_MOE_EXT) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.ID_STATUT) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.ID_REG) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.ID_ADM) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.COMMENTAIRES) }}
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 mb-4">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 mb-2">
+                            <h5 class="m-0 text-primary">Informations Techniques</h5>
+                        </div>
+                        <div class="card-body py-1 mb-2">
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.NOM_SERVEUR) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.TYPE_APPLI) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.DEV_LOCAUX) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.ID_SITE) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.QUALIFIE) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.DATE_REFORME) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.DATE_FIN_SUP) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.IMPACT_MV_OS) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.IMPACT_O365) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.IMPACT_REORG) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.IMPACT_PROJET) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.ID_CYBER) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.DIAG_CYBER) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.AUTH) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.BRIQUES, { 'attr': {'class': 'BriquesDropdown'} }) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.FLUX_IN) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.TYPE_FLUX_IN) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.FLUX_OUT) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.TYPE_FLUX_OUT) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.TYPE_ACCES) }}
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-9 mb-3">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 mb-2">
+                            <h5 class="m-0 text-primary">Suivi Technique</h5>
+                        </div>
+                        <div class="card-body py-1 mb-2">
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.OBSOLESCENCE) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.MV) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.TYPE_MV) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.PORTAGE) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.TYPE_PORTAGE) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.RAISON_PORTAGE) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.STATUT_SUIVI) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.DATE_DEBUT) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ form_row(form.DATE_FIN) }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_row(form.COMMENTAIRES_SUIVI) }}
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-4">Créer</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
