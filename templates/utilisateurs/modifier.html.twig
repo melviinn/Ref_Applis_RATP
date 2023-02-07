@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification Utilisateur{% endblock %}
+
+{% block stylesheets %}
+      {{ parent() }}
+      <link rel="stylesheet" href="{{ asset('css/Users/modifierUser.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+
+      <div class="container-fluid">
+            <form method="post">
+                  <div class="main-content">
+                        <div class="col-lg-6 mb-3">
+                              <div class="card shadow mb-4">
+                                    <div class="card-header py-3 mb-2">
+                                          <h4 class="m-0 text-primary">Modification de l'utilisateur n°{{ nomUser }}</h4>
+                                    </div>
+                                    <div class="card-body py-1 mb-2">
+                                          {{ form_start(form) }}
+                                                <div class="row">
+                                                      <div class="col">
+                                                            {{ form_row(form.MATRICULE) }}
+                                                      </div>
+                                                      <div class="col">
+                                                            {{ form_row(form.NOM) }}
+                                                      </div>
+                                                </div>
+                                                <div class="row">
+                                                      <div class="col">
+                                                            {{ form_row(form.PRENOM) }}
+                                                      </div>
+                                                      <div class="col">
+                                                            {{ form_row(form.ID_PROFIL) }}
+                                                      </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary mb-4">Modifier</button>
+                                          {{ form_end(form) }}
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </form>
+      </div>
+
+{% endblock %}

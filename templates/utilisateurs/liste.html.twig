@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Référentiel Utilisateurs{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('lib/jqwidgets/styles/jqx.base.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('lib/jqwidgets/styles/jqx.ui-ratp.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/Users/listUsers.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <h1 class="UserTitle py-1 mb-5">
+        Référentiel Utilisateurs
+    </h1>
+    <div class="main-content">
+        <div class="card shadow">
+            <div class="filtre mb-1">
+                <div class="right">
+                    <button type="submit" id="jqxButton_Rafraichir2">
+                        <a href="{{ path('app_ref_utilisateurs') }}">
+                            <i class="fa fa-w fa-sync mr-1"></i>
+                            <span>Rafraîchir</span>
+                        </a>
+                    </button>
+                    <button type="button" id="jqxButton_Exporter4">
+                        <a href="{{ path('app_liste_utilisateurs_xlsx') }}">
+                            <i class="fa fa-w fa-file-export mr-1"></i>
+                            <span>Exporter</span>
+                        </a>
+                    </button>
+                    <button type="button" id="jqxButton_Admin2">
+                        <a href="{{ path('app_choix_modif_applis') }}">
+                            <i class="fa fa-w fa-user-alt mr-1"></i>
+                            <span>Administration</span>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="grid-content">
+                <div id="jqxgrid_lstUtilisateurs" class="my-4 mx-4"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('lib/jqwidgets/jqxcore.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdata.js') }}" ></script>
+    <script src="{{ asset('lib/jqwidgets/jqxbuttons.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxmenu.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxlistbox.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdropdownlist.js') }}"></script>
+    <script  src="{{asset('lib/jqwidgets/jqxinput.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxscrollbar.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxcheckbox.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.sort.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.filter.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.pager.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.selection.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.edit.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.export.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdata.export.js') }}"></script>
+    <script src="{{ asset('js/localization.js') }}"></script>
+    <script src="{{ asset('js/gridUtilisateurs.js') }}"></script>
+{% endblock %}
