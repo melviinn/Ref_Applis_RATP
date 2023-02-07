@@ -1,1 +1,127 @@
+{% extends 'base.html.twig' %}
 
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+      {{ parent() }}
+      <link rel="stylesheet" href="{{ asset('css/Accueil/accueil.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+      <div class="row">
+            <div class="col-lg-6 mb-4">
+                  <div class="card shadow mb-4 ml-3">
+                        <div class="card-header py-3">
+                              <h6 class="m-0 text-primary">Informations générales</h6>
+                        </div>
+                        <div class="card-body">
+                              <p>Cet outil contient le <b>référencement des applications ADFS</b>. Il concernera la partie <b>fonctionnelle</b> et plus 
+                              particulièrement la <b>cohérence applicative (suivi des évolutions, RGPD, réforme fonctionnelle, etc...)</b>. Un second volet 
+                              concernera la partie <b>technique et cybersécurité (briques applicatives, environnements, obsolescence technique, etc...)</b>.
+                              Il permettra d'identifier rapidement les <b>impacts sur le parc applicatif lors d'évènements externes</b> tel que 
+                              les changements d'organisation ou les montées de version de l'environnement de travail de l'entreprise.</p>
+                        </div>
+                  </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                  <div class="card shadow mb-4 mr-3">
+                        <div class="card-header pt-3">
+                              <h6 class="m-0 text-primary mb-1">Référentiel</h6>
+                              <p class="mb-n2">Référencement du parc applicatif ainsi que ses utilisateurs :</p>
+                        </div>
+                        <div class="card-body">
+                              <a href="{{ path('app_ref_applications') }}" class="btn btn-primary btn-icon-split mr-4">
+                                    <span class="icon text-white-50">
+                                          <i class="fas fa-table"></i>
+                                    </span>
+                                    <span class="text">Applications ADFS</span>
+                              </a>
+                              <a href="{{ path('app_ref_utilisateurs') }}" class="btn btn-primary btn-icon-split mr-4">
+                                    <span class="icon text-white-50">
+                                          <i class="fas fa-table"></i>
+                                    </span>
+                                    <span class="text">Utilisateurs</span>
+                              </a>
+                              <a href="{{ path('app_ref_failles') }}" class="btn btn-primary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                          <i class="fas fa-table"></i>
+                                    </span>
+                                    <span class="text">Failles de sécurité</span>
+                              </a>
+                        </div>
+                  </div>
+                  <div class="card shadow mb-4 mr-3">
+                        <div class="card-header pt-3">
+                              <h6 class="m-0 text-primary mb-1">Gestion</h6>
+                              <p class="mb-n2">Cet outil permet l'ajout/modification d'une application, d'un utilisateur ou d'une faille de sécurité.</p>
+                        </div>
+                        <div class="gestion card-body">
+                              <div class="col-lg-3 mb-4 mr-5 ml-3">
+                                    <div class="card gestion_card">
+                                          <div class="card-header">
+                                                <h6 class="m-0 text-primary">Applications</h6>
+                                          </div>
+                                          <div class="card-body">
+                                                <a href="{{ path('app_creer_applis') }}" class="btn btn-primary btn-icon-split mb-2">
+                                                      <span class="icon text-white-50">
+                                                            <i class="fas fa-plus"></i>
+                                                      </span>
+                                                      <span class="text">Nouveau</span>
+                                                </a>
+                                                <a href="{{ path('app_choix_modif_applis') }}" class="btn btn-primary btn-icon-split mb-2">
+                                                      <span class="icon text-white-50">
+                                                            <i class="fas fa-edit"></i>
+                                                      </span>
+                                                      <span class="text">Modifier</span>
+                                                </a>
+                                          </div>
+                                    </div>
+                                    
+                              </div>
+                              <div class="col-lg-3 mb-4 mr-5 ml-3">
+                                    <div class="card gestion_card">
+                                          <div class="card-header">
+                                                <h6 class="m-0 text-primary">Utilisateurs</h6>
+                                          </div>
+                                          <div class="card-body">
+                                                <a href="{{ path('app_creer_utilisateur') }}" class="btn btn-primary btn-icon-split mb-2">
+                                                      <span class="icon text-white-50">
+                                                            <i class="fas fa-plus"></i>
+                                                      </span>
+                                                      <span class="text">Renseigner</span>
+                                                </a>
+                                                <a href="{{ path('app_choix_modif_utilisateurs') }}" class="btn btn-primary btn-icon-split mb-2">
+                                                      <span class="icon text-white-50">
+                                                            <i class="fas fa-edit"></i>
+                                                      </span>
+                                                      <span class="text">Modifier</span>
+                                                </a>
+                                          </div>
+                                    </div>
+                              </div>
+                              <div class="col-lg-3 mb-4 mr-5 ml-3">
+                                    <div class="card gestion_card">
+                                          <div class="card-header">
+                                                <h6 class="m-0 text-primary">Failles</h6>
+                                          </div>
+                                          <div class="card-body">
+                                                <a href="{{ path('app_creer_failles') }}" class="btn btn-primary btn-icon-split mb-2">
+                                                      <span class="icon text-white-50">
+                                                            <i class="fas fa-plus"></i>
+                                                      </span>
+                                                      <span class="text">Renseigner</span>
+                                                </a>
+                                                <a href="" class="btn btn-primary btn-icon-split mb-2">
+                                                      <span class="icon text-white-50">
+                                                            <i class="fas fa-edit"></i>
+                                                      </span>
+                                                      <span class="text">Editer</span>
+                                                </a>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+{% endblock %}
