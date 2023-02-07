@@ -1,1 +1,19 @@
+.msg-success {
+	display: flex;
+	max-width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+}
 
+.card-header h5 {
+	font-weight: bold;
+}
+
+.card-body button {
+	margin-left: 12px;
+}
+
+.main-content {
+	display: flex;
+	justify-content: center;
+}
