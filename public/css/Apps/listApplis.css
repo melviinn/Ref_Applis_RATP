@@ -1,0 +1,41 @@
+.card-header {
+	width: 1498px;
+}
+
+.filtre {
+	display: flex;
+	flex-direction: row;
+	padding-left: 2rem;
+	padding-top: 20px;
+}
+
+h1.ApplisTitle {
+	width: 100%;
+	background: #dbeef4;
+	padding: 2px 20px;
+	text-align: center;
+	font-weight: bold;
+	color: rgb(63, 59, 59);
+	border-radius: 30px;
+}
+
+.filtre .left {
+	width: 1000px;
+}
+
+.filtre .right {
+	display: flex;
+	justify-content: space-around;
+	width: 480px;
+}
+
+.main-content,
+.grid-content {
+	display: flex;
+	justify-content: center;
+}
+
+button a {
+	color: white;
+	text-decoration: none;
+}

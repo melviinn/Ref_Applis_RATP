@@ -1,0 +1,29 @@
+.card-header h3,
+h5 {
+	font-weight: bold;
+}
+
+.btn-retour {
+	margin-left: 30px;
+}
+
+.btn-retour a {
+	color: white;
+	text-decoration: none;
+}
+
+.div-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.BriquesDropdown {
+	width: 400px;
+	max-height: 100px;
+	border: 1px solid #d1d3e2;
+	border-radius: 0.35rem;
+	padding: 2px 4px;
+	overflow-x: hidden;
+}
