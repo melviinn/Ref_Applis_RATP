@@ -1,0 +1,124 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+# Accueil #
+app_accueil:
+    path: /
+    controller: App\Controller\AccueilController::accueil
+
+# ---------- ApplicationsController ---------- #
+
+# Tableaux de référencement des applications (JqxGrid) #
+app_ref_applications:
+    path: ref/applications
+    controller: App\Controller\ApplicationsController::listApplis
+
+# Formulaire de création d'une application #
+app_creer_applis:
+    path: creer/applis
+    controller: App\Controller\ApplicationsController::creerApplis
+
+# Formulaire du choix de l'application à modifier (l'id de l'appli choisie est passé dans la route vers 'app_modif_applis') #
+app_choix_modif_applis:
+    path: modifier/applis
+    controller: App\Controller\ApplicationsController::choixmodifApplis
+
+# Formulaire de modification de l'application choisie #
+app_modif_applis:
+    path: modifier/applis/{id}
+    controller: App\Controller\ApplicationsController::modifierApplis
+
+# Envoi des données aux format JSON -> JqxGrid (gridAll.js) #
+app_liste_apps_json:
+    path: list/applications
+    controller: App\Controller\ApplicationsController::listApplisToJson
+
+# Envoi des données aux format JSON -> JqxGrid (gridAppFonctio.js) #
+app_liste_apps_fonctionnelles_json:
+    path: list/applications/fonctionnelles
+    controller: App\Controller\ApplicationsController::listApplisFonctionnellesToJson
+
+# Envoi des données aux formats JSON -> JqxGrid (gridAppTechnique.js) #
+app_liste_apps_techniques_json:
+    path: list/applications/techniques
+    controller: App\Controller\ApplicationsController::listApplisTechniquesToJson
+
+# Export de toutes les données en tableau Excel #
+app_liste_apps_xlsx:
+    path: list/applications/xlsx
+    controller: App\Controller\ApplicationsController::listApplisToXlsx
+
+# Export des données 'techniques' en tableau Excel #
+app_liste_apps_techniques_xlsx:
+    path: list/applications/techniques/xlsx
+    controller: App\Controller\ApplicationsController::listApplisTechniquesToXlsx
+
+# Export des données 'fonctionnelles' en tableau Excel #
+app_liste_apps_fonctionnelles_xlsx:
+    path: list/applications/fonctionnelles/xlsx
+    controller: App\Controller\ApplicationsController::listApplisFonctionnellesToXlsx
+
+# ---------- UtilisateursController ---------- #
+
+# Tableau de référencement des utilisateurs (JqxGrid) #
+app_ref_utilisateurs:
+    path: ref/utilisateurs
+    controller: App\Controller\UtilisateursController::listUtilisateurs
+
+# Formulaire de création d'un utilisateur #
+app_creer_utilisateur:
+    path: creer/utilisateur
+    controller: App\Controller\UtilisateursController::creerUtilisateurs
+
+# Formulaire du choix de l'utilisateur à modifier (l'id de l'utilisateur choisi est passé dans la route vers 'app_modif_utilisateurs') #
+app_choix_modif_utilisateurs:
+    path: modifier/utilisateur
+    controller: App\Controller\UtilisateursController::choixModifUtilisateur
+
+# Formulaire de modification de l'utilisateur choisi #
+app_modif_utilisateurs:
+    path: modifier/utilisateur/{id}
+    controller: App\Controller\UtilisateursController::modifierUtilisateur
+
+# Envoi des données aux format JSON -> JqxGrid (gridUtilisateurs.js) #
+app_list_utilisateurs_json:
+    path: list/utilisateurs
+    controller: App\Controller\UtilisateursController::listUtilisateursToJson
+
+# Export de la liste des utilisateurs en tableau Excel #
+app_liste_utilisateurs_xlsx:
+    path: list/utilisateurs/xlsx
+    controller: App\Controller\UtilisateursController::listUtilisateursToExport
+
+# ---------- FaillesController ---------- #
+
+# Liste des failles (JqxGrid)#
+app_ref_failles:
+    path: ref/failles
+    controller: App\Controller\FaillesController::listFailles
+
+# Détail pour chaque faille #
+app_details_failles:
+    path: details/failles/{id}
+    controller: App\Controller\FaillesController::detailsFailles
+
+# Formulaire de création d'une faille #
+app_creer_failles:
+    path: creer/failles
+    controller: App\Controller\FaillesController::creerFailles
+
+# Envoi des données aux format JSON -> JqxGrid (gridFailles.js) #
+app_list_failles_json:
+    path: list/failles
+    controller: App\Controller\FaillesController::listFaillesToJson
+
+# Envoie des données au format JSON -> JqxGrid (gridDetailsFailles.js) #
+app_details_failles_json:
+    path: list/details/failles
+    controller: App\Controller\FaillesController::detailsFaillesToJson
+
+# Export de la liste des failles en tableau Excel #
+app_list_failles_xlsx:
+    path: list/failles/xlsx
+    controller: App\Controller\FaillesController::listFaillesToXlsx
