@@ -1,1 +1,40 @@
+body {
+	padding: 0;
+	margin: 0;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
 
+.btn-primary:hover {
+	background-color: #1a7399;
+}
+
+.card-header h6 {
+	font-weight: bold;
+}
+
+.card-body p {
+	color: black;
+	font-size: large;
+}
+
+.gestion {
+	display: flex;
+	flex-direction: row;
+}
+
+@media screen and (max-width: 1400px) {
+	.card-body p {
+		color: black;
+		font-size: medium;
+	}
+
+	.gestion {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.gestion_card {
+		width: 300px;
+	}
+}
