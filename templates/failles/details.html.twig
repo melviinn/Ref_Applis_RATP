@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails Failles{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+      <link rel="stylesheet" href="{{ asset('lib/jqwidgets/styles/jqx.base.css') }}" type="text/css">
+      <link rel="stylesheet" href="{{ asset('lib/jqwidgets/styles/jqx.ui-ratp.css') }}" type="text/css">
+      <link rel="stylesheet" href="{{ asset('css/Failles/detailsFailles.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+      <h1 class="FaillesTitle py-1 mb-5">
+            Suivi de la vulnérabilité "{{ faille_lib }}"
+      </h1>
+      <div>
+            <div class="text-area mb-4">
+                  <div>
+                        <p>Description de la vulnérabilité {{ faille_lib }} ...</p>
+                  </div>
+                  
+            </div>
+            <div class="btn-retour">
+                  <button type="button" id="jqxButton_RetourFailles" class="mr-3 mb-3" >
+                        <a href="{{ path('app_ref_failles') }}">
+                              <i class="fa fa-w fa-arrow-circle-left mr-1"></i>
+                              <span>Retourner à la liste</span>
+                        </a>
+                  </button>
+            </div>
+      </div>
+      <input id="faille_id" type="hidden" value="{{ faille_id }}" />
+      <div id="container" class="main-content">
+            <div class="card shadow">
+                  <div id="test"class="filtre mb-1">
+                        <div class="right">
+                              <button type="submit" id="jqxButton_RafraichirFailles1" class="mr-3">
+                                    <a href="">
+                                          <i class="fa fa-w fa-sync mr-1"></i>
+                                          <span>Rafraîchir</span>
+                                    </a>
+                              </button>
+                              <button type="button" id="jqxButton_AdminFailles1">
+                                    <a href="">
+                                          <i class="fa fa-w fa-user-alt mr-1"></i>
+                                          <span>Administration</span>
+                                    </a>
+                              </button>
+                        </div>
+                  </div>
+                  <div class="grid-content">
+                        <div id="jqxgrid_detailsFailles" class="mx-4 my-4"></div>
+                  </div>
+            </div>
+      </div>
+{% endblock %}
+
+
+
+{% block javascripts %}
+      {{ parent() }}
+      <script src="{{ asset('lib/jqwidgets/jqxcore.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxdata.js') }}" ></script>
+      <script src="{{ asset('lib/jqwidgets/jqxbuttons.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxmenu.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxlistbox.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxdropdownlist.js') }}"></script>
+      <script  src="{{asset('lib/jqwidgets/jqxinput.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxscrollbar.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxcheckbox.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxgrid.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxgrid.sort.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxgrid.filter.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxgrid.pager.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxgrid.selection.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxcalendar.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxdatetimeinput.js') }}"></script>
+      <script src="{{ asset('lib/jqwidgets/jqxgrid.edit.js') }}"></script>
+      <script src="{{ asset('js/localization.js') }}"></script>
+      <script src="{{ asset('js/gridDetailsFailles.js') }}"></script>
+{% endblock %}

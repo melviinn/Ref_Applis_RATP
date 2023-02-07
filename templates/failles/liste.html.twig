@@ -1,56 +1,68 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Renseigner une faille{% endblock %}
+{% block title %}Référentiel Failles{% endblock %}
 
 {% block stylesheets %}
-      {{ parent() }}
-      <link rel="stylesheet" href="{{ asset('css/Failles/creerFailles.css') }}" type="text/css">
+{{ parent() }}
+    <link rel="stylesheet" href="{{ asset('lib/jqwidgets/styles/jqx.base.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('lib/jqwidgets/styles/jqx.ui-ratp.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/Failles/listFailles.css') }}" type="text/css">
 {% endblock %}
 
 {% block body %}
-      <div class="main-content container-fluid">
-            <div>
-                  {% for message in app.flashes('msg') %}
-                        <div class="alert alert-success">
-                              {{ message }}
-                        </div>
-                  {% endfor %}
+    <h1 class="FaillesTitle py-1 mb-5">
+        Référentiel Failles
+    </h1>
+    <div class="content">
+        <div class="card shadow">
+            <div class="btn-group mb-1">
+                <div class="right">
+                    <button type="submit" id="jqxButton_RafraichirFailles" class="mr-3">
+                        <a href="{{ path('app_ref_failles') }}">
+                            <i class="fa fa-w fa-sync mr-1"></i>
+                            <span>Rafraîchir</span>
+                        </a>
+                    </button>
+                    <button type="button" id="jqxButton_ExporterFailles" class="mr-3">
+                        <a href="{{ path('app_list_failles_xlsx') }}">
+                            <i class="fa fa-w fa-file-export mr-1"></i>
+                            <span>Exporter</span>
+                        </a>
+                    </button>
+                    <button type="button" id="jqxButton_AdminFailles">
+                        <a href="">
+                            <i class="fa fa-w fa-user-alt mr-1"></i>
+                            <span>Administration</span>
+                        </a>
+                    </button>
+                </div>
             </div>
-            <div class="col-lg-8">
-                  <form method="post">
-                        <div class="card shadow mb-4">
-                              <div class="card-header py-3 mb-2">
-                                    <h5 class="m-0 text-primary">Faille de sécurité</h5>
-                              </div>
-                              <div class="card-body py-1 mb-2">
-                                    {{ form_start(form) }}
-                                          <div class="row">
-                                                <div class="col">
-                                                      {{ form_row(form.ID_APPLICATION, { 'attr': {'class': 'AppsDropdown'} }) }}
-                                                </div>
-                                                <div class="col">
-                                                      {{ form_row(form.LIB_FAILLE) }}
-                                                </div>
-                                                <div class="col">
-                                                      {{ form_row(form.COMP_FAILLE) }}
-                                                </div>
-                                          </div>
-                                          <div class="row">
-                                                <div class="col">
-                                                      {{ form_row(form.DATE_FAILLE) }}
-                                                </div>
-                                                <div class="col">
-                                                      {{ form_row(form.STATUT) }}
-                                                </div>
-                                                <div class="col">
-                                                      {{ form_row(form.DATE_FERMETURE) }}
-                                                </div>
-                                          </div>
-                                          <button type="submit" class="btn btn-primary mb-4">Créer</button>
-                                    {{ form_end(form) }}
-                              </div>
-                        </div>
-                  </form>
+            <div class="grid-content">
+                <div id="jqxgrid_lstFailles" class="mx-4 my-4"></div>
             </div>
-      </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('lib/jqwidgets/jqxcore.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdata.js') }}" ></script>
+    <script src="{{ asset('lib/jqwidgets/jqxbuttons.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxmenu.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxlistbox.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdropdownlist.js') }}"></script>
+    <script  src="{{asset('lib/jqwidgets/jqxinput.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxscrollbar.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxcheckbox.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.sort.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.filter.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.pager.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.selection.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxcalendar.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdatetimeinput.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.edit.js') }}"></script>
+    <script src="{{ asset('js/localization.js') }}"></script>
+    <script src="{{ asset('js/gridFailles.js') }}"></script>
 {% endblock %}
