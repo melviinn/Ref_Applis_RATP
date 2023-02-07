@@ -1,0 +1,32 @@
+h1.UserTitle {
+	width: 100%;
+	background: #dbeef4;
+	padding: 2px 20px;
+	text-align: center;
+	font-weight: bold;
+	color: rgb(63, 59, 59);
+	border-radius: 30px;
+}
+
+.filtre {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding-top: 20px;
+}
+
+.filtre .right {
+	display: flex;
+	justify-content: center;
+}
+
+.main-content,
+.grid-content {
+	display: flex;
+	justify-content: center;
+}
+
+button a {
+	color: white;
+	text-decoration: none;
+}

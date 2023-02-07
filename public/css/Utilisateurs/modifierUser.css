@@ -1,0 +1,25 @@
+.card-header h3,
+h4 {
+	font-weight: bold;
+}
+
+.btn-retour {
+	margin-left: 30px;
+}
+
+.btn-retour a {
+	color: white;
+	text-decoration: none;
+}
+
+.div-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.main-content {
+	display: flex;
+	justify-content: center;
+}
