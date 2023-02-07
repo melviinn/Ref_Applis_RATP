@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Référentiel Applicatif{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('lib/jqwidgets/styles/jqx.base.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('lib/jqwidgets/styles/jqx.ui-ratp.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/Apps/listApplis.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <h1 class="ApplisTitle py-1 mb-5">
+        {% if isChecked1 %}
+            Référentiel Applicatifs - Informations Techniques
+        {% elseif isChecked2 %}
+            Référentiel Applicatifs - Informations Fonctionnelles
+        {% elseif isAllChecked %}
+            Référentiel Applicatifs
+        {% else %}
+            Référentiel Applicatifs
+        {% endif %}
+    </h1>
+    <div class="main-content">
+        <div class="card shadow">
+            <div class="filtre mb-1">
+                <div class="left">
+                    {{ form_start(filtrelisteForm) }}
+                        <div>
+                            {{ form_widget(filtrelisteForm.check1, {'attr': {'class': 'ml-0 mr-2', 'style': 'cursor: pointer;'}})}}
+                            {{ form_label(filtrelisteForm.check1)}}
+                        </div>
+                        <div>
+                            {{ form_widget(filtrelisteForm.check2, {'attr': {'class': 'ml-0 mr-2', 'style': 'cursor: pointer;'}})}}
+                            {{ form_label(filtrelisteForm.check2)}}
+                        </div>
+                        
+                </div>
+                <div class="right">
+                    <button type="submit" id="jqxButton_Rafraichir">
+                        <i class="fa fa-w fa-sync mr-1"></i>
+                        <span>Rafraîchir</span>
+                    </button>
+                    {{ form_end(filtrelisteForm) }}
+                    {% if isChecked1 %}
+                        <button type="button" id="jqxButton_Exporter3">
+                            <a href="{{ path('app_liste_apps_techniques_xlsx') }}">
+                                <i class="fa fa-w fa-file-export mr-1"></i>
+                                <span>Exporter</span>
+                            </a>
+                        </button>
+                    {% elseif isChecked2 %}
+                        <button type="button" id="jqxButton_Exporter2">
+                            <a href="{{ path('app_liste_apps_fonctionnelles_xlsx') }}">
+                                <i class="fa fa-w fa-file-export mr-1"></i>
+                                <span>Exporter</span>
+                            </a>
+                        </button>
+                    {% elseif isAllChecked %}
+                        <button type="button" id="jqxButton_Exporter">
+                            <a href="{{ path('app_liste_apps_xlsx') }}">
+                                <i class="fa fa-w fa-file-export mr-1"></i>
+                                <span>Exporter</span>
+                            </a>
+                        </button>
+                    {% else %}
+                        <button type="button" id="jqxButton_Exporter">
+                            <a href="{{ path('app_liste_apps_xlsx') }}">
+                                <i class="fa fa-w fa-file-export mr-1"></i>
+                                <span>Exporter</span>
+                            </a>
+                        </button>
+                    {% endif %}
+                    <button type="button" id="jqxButton_Admin">
+                        <a href="{{ path('app_choix_modif_applis') }}">
+                            <i class="fa fa-w fa-user-alt mr-1"></i>
+                            <span>Administration</span>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="grid-content">
+                {% if isChecked1 %}
+                    <div id="jqxgrid_lstAppsTecniques" class="mx-4 my-4"></div>
+                {% elseif isChecked2 %}
+                    <div id="jqxgrid_lstAppsFonctio" class="mx-4 my-4"></div>
+                {% elseif isAllChecked %}
+                    <div id="jqxgrid_lstAll" class="mx-4 my-4"></div>
+                {% else %}
+                    <div id="jqxgrid_lstAll" class="mx-4 my-4"></div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('lib/jqwidgets/jqxcore.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdata.js') }}" ></script>
+    <script src="{{ asset('lib/jqwidgets/jqxbuttons.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxmenu.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxlistbox.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdropdownlist.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxinput.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxscrollbar.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxcheckbox.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.js') }}"></script>    
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.sort.js') }}"></script> 
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.filter.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.pager.js') }}"></script> 
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.selection.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.edit.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxcalendar.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdatetimeinput.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxgrid.export.js') }}"></script>
+    <script src="{{ asset('lib/jqwidgets/jqxdata.export.js') }}"></script>
+    <script src="{{ asset('js/localization.js') }}"></script>
+    <script src="{{ asset('js/gridAll.js') }}"></script>
+    <script src="{{ asset('js/gridAppFonctio.js') }}"></script>
+    <script src="{{ asset('js/gridAppTechnique.js') }}"></script>
+{% endblock %}
