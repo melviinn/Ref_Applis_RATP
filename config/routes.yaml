@@ -93,7 +93,7 @@ app_liste_utilisateurs_xlsx:
 
 # ---------- FaillesController ---------- #
 
-# Liste des failles (JqxGrid)#
+# Liste des failles (JqxGrid) #
 app_ref_failles:
     path: ref/failles
     controller: App\Controller\FaillesController::listFailles
