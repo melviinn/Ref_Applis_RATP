@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renseigner une faille{% endblock %}
+
+{% block stylesheets %}
+      {{ parent() }}
+      <link rel="stylesheet" href="{{ asset('css/Failles/creerFailles.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+      <div class="main-content container-fluid">
+            <div>
+                  {% for message in app.flashes('msg') %}
+                        <div class="alert alert-success">
+                              {{ message }}
+                        </div>
+                  {% endfor %}
+            </div>
+            <div class="col-lg-8">
+                  <form method="post">
+                        <div class="card shadow mb-4">
+                              <div class="card-header py-3 mb-2">
+                                    <h5 class="m-0 text-primary">Faille de sécurité</h5>
+                              </div>
+                              <div class="card-body py-1 mb-2">
+                                    {{ form_start(form) }}
+                                          <div class="row">
+                                                <div class="col">
+                                                      {{ form_row(form.LIB_FAILLE) }}
+                                                </div>
+                                                <div class="col">
+                                                      {{ form_row(form.ID_APPLICATION, { 'attr': {'class': 'AppsDropdown'} }) }}
+                                                </div>
+                                                <div class="col">
+                                                      {{ form_row(form.COMP_FAILLE) }}
+                                                </div>
+                                          </div>
+                                          <div class="row">
+                                                <div class="col">
+                                                      {{ form_row(form.DATE_FAILLE) }}
+                                                </div>
+                                                <div class="col">
+                                                      {{ form_row(form.STATUT) }}
+                                                </div>
+                                                <div class="col">
+                                                      {{ form_row(form.DATE_FERMETURE) }}
+                                                </div>
+                                          </div>
+                                          <button type="submit" class="btn btn-primary mb-4">Créer</button>
+                                    {{ form_end(form) }}
+                              </div>
+                        </div>
+                  </form>
+            </div>
+      </div>
+{% endblock %}
