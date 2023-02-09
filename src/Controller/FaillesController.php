@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\FAILLES;
 use App\Entity\FAILLESAPPLICATIONS;
 use App\Form\FaillesAppsType;
-use App\Form\FaillesType;
 use App\Repository\FAILLESAPPLICATIONSRepository;
 use App\Repository\FAILLESRepository;
 use Doctrine\ORM\EntityManagerInterface;
