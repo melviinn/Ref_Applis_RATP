@@ -16,8 +16,8 @@ class FAILLES
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToMany(targetEntity: APPLICATIONS::class)]
-    private Collection $ID_APPLICATION;
+    //#[ORM\ManyToMany(targetEntity: APPLICATIONS::class)]
+    //private Collection $ID_APPLICATION;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $LIB_FAILLE = null;
@@ -34,10 +34,10 @@ class FAILLES
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DATE_FERMETURE = null;
 
-    public function __construct()
+    /*public function __construct()
     {
         $this->ID_APPLICATION = new ArrayCollection();
-    }
+    }*/
 
     public function getId(): ?int
     {
@@ -47,7 +47,7 @@ class FAILLES
     /**
      * @return Collection<int, APPLICATIONS>
      */
-    public function getIDAPPLICATION(): Collection
+    /*public function getIDAPPLICATION(): Collection
     {
         return $this->ID_APPLICATION;
     }
@@ -66,7 +66,7 @@ class FAILLES
         $this->ID_APPLICATION->removeElement($iDAPPLICATION);
 
         return $this;
-    }
+    }*/
 
     public function getLIBFAILLE(): ?string
     {
